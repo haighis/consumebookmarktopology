@@ -23,7 +23,7 @@ public class ConsumeBookmarkTopologyMain {
 		conf.setDebug(true);
         //Topology run
 		conf.put(Config.TOPOLOGY_MAX_SPOUT_PENDING, 1);
-		LocalCl asdfasdfuster cluster = new LocalCluster();
+		LocalCluster = new LocalCluster();
 		cluster.submitTopology("ConsumeBookmarkTopology", conf, builder.createTopology());
 		Thread.sleep(1000);
 		//cluster.shutdown();
