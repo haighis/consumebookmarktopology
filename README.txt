@@ -25,3 +25,9 @@ mvn exec:java -Dexec.mainClass="ConsumeBookmarkTopologyMain"
 If you are on windows you may get a build failure stating it cannot delete a
 temporary log file. This is permission issue on windows which can be ignored. 
 If you scroll up your command window you will see the topology ran successfully.
+
+How to submit to a production storm cluster
+
+/opt/storm-0.9.0.1/bin/storm jar /path/to/jar/consumebookmarktopology-0.0.1-SNAPSHOT.jar ConsumeBookmarkTopologyMain
+
+https://github.com/nathanmarz/storm/wiki/Running-topologies-on-a-production-cluster
