@@ -32,8 +32,23 @@ How to submit to a production storm cluster
 
 https://github.com/nathanmarz/storm/wiki/Running-topologies-on-a-production-cluster
 
+
+Create Java jar with dependencies
+
+mvn -f pom.xml package
+
+Submit Test Topology 
+
 /opt/storm-0.9.0.1/bin/storm jar /home/haighis/storm-starter-0.0.1-SNAPSHOT-jar-with-dependencies.jar storm.starter.ExclamationTopology wills-test-topology
 
-/opt/storm-0.9.0.1/bin/storm jar /home/haighis/cbt6.jar storm.consume.ConsumeBookmarkTopologyMain 10.0.0.7 1
+Submit Consume Bookmark Toplogy to Storm in production cluster
 
+/opt/storm-0.9.0.1/bin/storm jar /home/[user]/[jarname].jar storm.consume.ConsumeBookmarkTopologyMain [SOMEHOSTNAME] 1
 
+View Topology in Production Cluster
+
+/opt/storm-0.9.0.1/bin/storm list
+
+Kill Topology in Production Cluster
+
+/opt/storm-0.9.0.1/bin/storm kill ConsumeBookmarkTopology
