@@ -1,21 +1,21 @@
-package util;
+package storm.consume.util;
 
 import java.io.IOException;
 
-import model.BookmarkUrl;
+import storm.consume.model.BookmarkUrl;
 
 public class Conf {
     public static final String REDIS_HOST_KEY = "redisHost";
     public static final String REDIS_PORT_KEY = "redisPort";
     public static final String DEFAULT_JEDIS_PORT = "6379";
-    public static final String AZURE_QUEUE_POPBOOKMARK = "http://rtspappsvc1.azurewebsites.net/actions/appservice/popbookmark";
+    public static final String AZURE_QUEUE_POPBOOKMARK = "host";
     
     public static byte[] GetWordCountUrlsQueueName()
     {
     	byte[] ar = null;
     	
     	try {
-			ar = util.Serializer.serialize("counturls");
+			ar = storm.consume.util.Serializer.serialize("counturls");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -29,7 +29,7 @@ public class Conf {
     	byte[] ar = null;
     	
     	try {
-			ar = util.Serializer.serialize("newbaudit");
+			ar = storm.consume.util.Serializer.serialize("newbaudit");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,7 +43,7 @@ public class Conf {
     	byte[] ar = null;
     	
     	try {
-			ar = util.Serializer.serialize("newscrnur");
+			ar = storm.consume.util.Serializer.serialize("newscrnur");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

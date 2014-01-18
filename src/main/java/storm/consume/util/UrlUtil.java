@@ -1,4 +1,4 @@
-package util;
+package storm.consume.util;
 
 import java.net.*;
 import java.io.*;

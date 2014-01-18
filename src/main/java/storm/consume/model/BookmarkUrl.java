@@ -1,4 +1,4 @@
-package model;
+package storm.consume.model;
 
 import java.io.Serializable;
 

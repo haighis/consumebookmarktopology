@@ -28,6 +28,12 @@ If you scroll up your command window you will see the topology ran successfully.
 
 How to submit to a production storm cluster
 
-/opt/storm-0.9.0.1/bin/storm jar /path/to/jar/consumebookmarktopology-0.0.1-SNAPSHOT.jar ConsumeBookmarkTopologyMain
+/opt/storm-0.9.0.1/bin/storm jar /path/to/jar/consumebookmarktopology-0.0.1-SNAPSHOT.jar storm.consume.ConsumeBookmarkTopologyMain
 
 https://github.com/nathanmarz/storm/wiki/Running-topologies-on-a-production-cluster
+
+/opt/storm-0.9.0.1/bin/storm jar /home/haighis/storm-starter-0.0.1-SNAPSHOT-jar-with-dependencies.jar storm.starter.ExclamationTopology wills-test-topology
+
+/opt/storm-0.9.0.1/bin/storm jar /home/haighis/cbt6.jar storm.consume.ConsumeBookmarkTopologyMain 10.0.0.7 1
+
+

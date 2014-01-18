@@ -1,4 +1,4 @@
-package spouts;
+package storm.consume.spouts;
 
 import java.util.Map;
 
@@ -12,9 +12,9 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import model.BookmarkUrl;
 import redis.clients.jedis.Jedis;
-import util.Conf; 
+import storm.consume.model.BookmarkUrl;
+import storm.consume.util.Conf;
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.OutputFieldsDeclarer;
@@ -34,13 +34,16 @@ public class ConsumeBookmarkSpout extends BaseRichSpout {
     public void open(Map conf, TopologyContext topologyContext, SpoutOutputCollector spoutOutputCollector) {
         this.collector = spoutOutputCollector;
     }
+    
+    public void close() {
+    }
 
     @Override
     public void nextTuple() {
       	try {
 			
 			Client client = ClientBuilder.newClient();
-	    	Response res = client.target(util.Conf.AZURE_QUEUE_POPBOOKMARK).request("application/json").get();
+	    	Response res = client.target(storm.consume.util.Conf.AZURE_QUEUE_POPBOOKMARK).request("application/json").get();
 	    	
 	    	String bookmarkString = res.readEntity(String.class);
 	    	
@@ -79,5 +82,12 @@ public class ConsumeBookmarkSpout extends BaseRichSpout {
 			// TODO Auto-generated catch block
 			System.out.println("in spout error: " + e.getMessage()); //e.printStackTrace();
 		}
+    }
+    
+    public void ack(Object msgId) {
+    	
+    }
+    	
+    public void fail(Object msgId) {
     }
 }
